@@ -1,0 +1,32 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>List of Trainees</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Image</th>  <!-- إضافة عمود الصورة -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for trainee in trainees %}
+                <tr>
+                    <td>{{ trainee.name }}</td>
+                    <td>{{ trainee.email }}</td>
+                    <td>{{ trainee.course.name }}</td>
+                    <td>
+                        {% if trainee.image %}
+                            <img src="{{ trainee.image.url }}" alt="Image of {{ trainee.name }}" width="100">  <!-- عرض الصورة -->
+                        {% else %}
+                            No image available
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'add_trainee' %}">Add New Trainee</a>
+{% endblock %}
