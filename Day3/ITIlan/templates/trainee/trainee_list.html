@@ -1,4 +1,4 @@
-{% extends 'base_generic.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
     <h2>List of Trainees</h2>
@@ -8,7 +8,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Course</th>
-                <th>Image</th>  <!-- إضافة عمود الصورة -->
+                <th>Image</th>
             </tr>
         </thead>
         <tbody>
@@ -18,15 +18,15 @@
                     <td>{{ trainee.email }}</td>
                     <td>{{ trainee.course.name }}</td>
                     <td>
-                        {% if trainee.image %}
-                            <img src="{{ trainee.image.url }}" alt="Image of {{ trainee.name }}" width="100">  <!-- عرض الصورة -->
-                        {% else %}
-                            No image available
-                        {% endif %}
+
+                            <img src=" /media/{{ trainee.image }}" alt="Image of {{ trainee.name }}" width="100">
+
                     </td>
                 </tr>
+
             {% endfor %}
         </tbody>
     </table>
+ok {{trainees.7.image }} ok
     <a href="{% url 'add_trainee' %}">Add Trainee</a>
 {% endblock %}
