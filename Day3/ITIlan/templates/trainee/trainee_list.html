@@ -27,6 +27,8 @@
             {% endfor %}
         </tbody>
     </table>
-ok {{trainees.7.image }} ok
+
     <a href="{% url 'add_trainee' %}">Add Trainee</a>
+      <a href="{% url 'update_trainee' trainee.pk %}">Update</a>
+     <a href="{% url 'delete_trainee' trainee.pk %}">Delete Trainee</a>
 {% endblock %}
