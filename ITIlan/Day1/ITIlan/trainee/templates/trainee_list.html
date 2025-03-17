@@ -1,0 +1,20 @@
+<h2>Trainee list</h2>
+
+<ul>
+    {% for trainee in trainees %}
+        <li>{{ trainee }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'trainee_add' %}">Add New Trainee</a>
+
+<ul>
+    {% for trainee in trainees %}
+        <li>
+            {{ trainee }}
+            <a href="{% url 'delete_trainee' id=forloop.counter0 %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'home' %}">Back to Home</a>
