@@ -7,6 +7,5 @@ router = DefaultRouter()
 router.register(r'courses', views.CourseViewSet)
 
 urlpatterns = [
-    path('', views.CourseViewSet.as_view({'get': 'list'}), name='courses-list'),
-    path('<int:pk>/', views.CourseViewSet.as_view({'get': 'retrieve'}), name='course-detail'),
+     path('', include(router.urls)),
 ]
