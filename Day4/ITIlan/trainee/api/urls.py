@@ -1,9 +1,8 @@
 from django.urls import path
-from . import views
-router = DefaultRouter()
-router.register(r'trainees', TraineeViewSet)
+from views import *
+
 urlpatterns = [
-    path('courses/', Course_List_Create.as_view(), name='course-list-create')
-    path('courses/<int:pk>/', Course_Retrieve_Update_Delete.as_view(), name='course-retrieve-update-delete'),
-    path('', include(router.urls)),
+    path('', TraineeListCreateView.as_view(), name='trainee-list-create'),
+    path('update/<int:pk>/', TraineeUpdateView.as_view(), name='trainee-update'),
+    path('delete/<int:pk>/', TraineeDeleteView.as_view(), name='trainee-delete'),
 ]

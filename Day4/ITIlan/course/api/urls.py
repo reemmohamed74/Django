@@ -1,9 +1,12 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
 from . import views
+from views import *
+
 router = DefaultRouter()
-router.register(r'trainees', TraineeViewSet)
+router.register(r'courses', views.CourseViewSet)
+
 urlpatterns = [
-    path('courses/', Course_List_Create.as_view(), name='course-list-create')
-    path('courses/<int:pk>/', Course_Retrieve_Update_Delete.as_view(), name='course-retrieve-update-delete'),
-    path('', include(router.urls)),
+    path('', views.CourseViewSet.as_view({'get': 'list'}), name='courses-list'),
+    path('<int:pk>/', views.CourseViewSet.as_view({'get': 'retrieve'}), name='course-detail'),
 ]
