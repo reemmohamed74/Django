@@ -3,7 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from ..models import Trainee
-from serializers import TraineeSerializer
+from .serializers import TraineeSerializer
+
 class TraineeListCreateView(APIView):
     def get(self, request):
         trainees = Trainee.getallactivetrainee()
